@@ -4,7 +4,7 @@ Module to assign Azure policies to Management groups based on a predefined Manag
 This module is intended to be used for assigning Azure Policies to Management Groups only.
 
 # USING THE MODULE
-This Repository contains associated files that are referenced by the deployment. The intention is that the repo shoudl be forked into your own Repository and then run from there. This allows you to define your own archetype file types and your own Policy Assignment files. 
+This
 
 
 # OVERVIEW

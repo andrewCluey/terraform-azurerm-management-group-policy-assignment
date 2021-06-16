@@ -7,6 +7,8 @@ module "management_group_policy_assignment" {
 
   archetype        = "platform"
   management_group = "im"
+  assignment_file_path = "${path.module}/lib/policyAssignments"
+  archetype_files_path = "${path.module}/lib/types"
 }
 
 output "m_id" {

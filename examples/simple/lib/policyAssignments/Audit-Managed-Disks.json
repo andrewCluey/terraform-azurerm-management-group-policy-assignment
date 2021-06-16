@@ -1,0 +1,21 @@
+{
+  "name": "Audit-Managed-Disks",
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "properties": {
+    "description": "Deny SQL vNET.",
+    "displayName": "Deny SQL vNET",
+    "notScopes": [],
+    "parameters": {
+      "effect": {
+        "value": "Deny"
+      }
+    },
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0088bc63-6dee-4a9c-9d29-91cfdc848952",
+    "enforcementMode": null
+  },
+  "location": "uksouth",
+  "identity": {
+    "type": "None"
+  }
+}

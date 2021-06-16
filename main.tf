@@ -1,9 +1,9 @@
 locals {
-    archetype_file = "${path.module}/lib/types/${var.archetype}.json"
-    policy_assignment_files = "${path.module}/lib/policyAssignments"
-    management_group_scope = "/providers/Microsoft.Management/managementGroups/${var.management_group}"
-    raw_archetype_data     = jsondecode(file(local.archetype_file))
-    policies_to_assign     = toset(local.raw_archetype_data.landing_zones.policy_assignments)
+    archetype_file          = "${var.archetype_files_path}/${var.archetype}.json" #"${path.module}/lib/types/${var.archetype}.json"
+    policy_assignment_files = var.assignment_file_path #"${path.module}/lib/policyAssignments"
+    management_group_scope  = "/providers/Microsoft.Management/managementGroups/${var.management_group}"
+    raw_archetype_data      = jsondecode(file(local.archetype_file))
+    policies_to_assign      = toset(local.raw_archetype_data.landing_zones.policy_assignments)
 }
 
 

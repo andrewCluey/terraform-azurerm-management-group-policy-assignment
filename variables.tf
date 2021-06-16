@@ -7,3 +7,14 @@ variable "management_group" {
   type        = string
   description = "The Management Group where policies are to be assigned."
 }
+
+
+variable "assignment_file_path" {
+  type        = string
+  description = "The path to the Policy Assignment files."
+}
+
+variable "archetype_files_path" {
+  type        = string
+  description = "description"
+}
