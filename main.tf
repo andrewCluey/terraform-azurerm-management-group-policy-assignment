@@ -18,8 +18,15 @@ resource "azurerm_policy_assignment" "assignment" {
     display_name         = jsondecode(file("${local.policy_assignment_files}/${each.key}.json")).properties.displayName
     location             = try(jsondecode(file("${local.policy_assignment_files}/${each.key}.json")).location, null)
     description          = try(jsondecode(file("${local.policy_assignment_files}/${each.key}.json")).properties.description, "${each.key} Policy Assignment at ${local.management_group_scope}")
-    metadata             = try(jsondecode(file("${local.policy_assignment_files}/${each.key}.json")).properties.metadata, null)
-    parameters           = jsonencode(jsondecode(file("${local.policy_assignment_files}/${each.key}.json")).properties.parameters)
+    metadata             = <<METADATA
+    {
+        "category": "General",
+        "createdBy": "Terraform",
+        "createdOn": "null"
+    }
+METADATA
+    #metadata             = try(jsondecode(file("${local.policy_assignment_files}/${each.key}.json")).properties.metadata, null)
+    parameters           = try(jsonencode(jsondecode(file("${local.policy_assignment_files}/${each.key}.json")).properties.parameters), null)
     not_scopes           = jsondecode(file("${local.policy_assignment_files}/${each.key}.json")).properties.notScopes
     enforcement_mode     = jsondecode(file("${local.policy_assignment_files}/${each.key}.json")).properties.enforcementMode
     
@@ -27,3 +34,5 @@ resource "azurerm_policy_assignment" "assignment" {
         type = try(jsondecode(file("${local.policy_assignment_files}/${each.key}.json")).identity.type, "None")
     }
 }
+
+

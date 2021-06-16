@@ -1,4 +1,5 @@
-output "id" {
-    value = azurerm_policy_assignment[each.key].assignment.id
-    description = "The ID of the new policy assignment"
+output "assignment_id" {
+  value = tomap({
+    for k, pa in azurerm_policy_assignment.assignment : k => pa.id
+  })
 }
