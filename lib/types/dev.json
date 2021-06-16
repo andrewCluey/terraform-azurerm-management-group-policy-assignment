@@ -1,0 +1,9 @@
+{
+    "landing_zones": {
+        "policy_assignments": [],
+        "archetype_config": {
+            "parameters": {},
+            "access_control": {}
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "landing_zones": {
+        "policy_assignments": [
+            "Deny-RDP-From-Internet"
+        ],
+        "policy_definitions": [],
+        "policy_set_definitions": [],
+        "archetype_config": {
+            "parameters": {},
+            "access_control": {}
+        }
+    }
+}
